@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const noteController = require('../controllers/noteController');
 const requireAuth = require('../middlewares/requireAuth');
+const validateId = require('../middlewares/validateId');
+
+router.param('id', validateId);
 
 //require authorizarion for all note routes
 router.use(requireAuth);
